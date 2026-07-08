@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import RecordRTC from 'recordrtc';
 import './Chatbot.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://ai-healthcare-assist-2mzh.onrender.com';
+
 const Chatbot = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -63,7 +65,7 @@ const Chatbot = () => {
     formData.append('lang', i18n.language);
     
     try {
-        const response = await fetch('http://localhost:8000/api/transcribe/', {
+        const response = await fetch(`${API_BASE_URL}/api/transcribe/`, {
             method: 'POST',
             body: formData
         });
@@ -220,7 +222,7 @@ const Chatbot = () => {
 
     try {
       // Direct call to Django Backend
-      const response = await fetch('http://localhost:8000/api/analyze/', {
+      const response = await fetch(`${API_BASE_URL}/api/analyze/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
