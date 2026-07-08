@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Activity } from 'lucide-react';
 import './Home.css';
 
@@ -15,9 +16,9 @@ const Home = () => {
           <p className="hero-subtitle">{t('Your intelligent healthcare companion.')}</p>
           
           <div className="hero-actions">
-            <a href="/chatbot" className="btn btn-primary btn-large">
+            <Link to="/chatbot" className="btn btn-primary btn-large">
               {t('Get Started')}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
